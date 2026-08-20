@@ -1,0 +1,20 @@
+{
+  "vendor": "DashForge",
+  "window": {"from": "review-id:2977", "to": "review-id:3312"},
+  "reviews": [
+    {
+      "id": "rev-3312",
+      "rating": 3,
+      "role": "demand generation manager",
+      "company_size": "50-200",
+      "body": "The multi-touch beta is not really multi-touch. It looks like last-click with weights on it — the same deal gets credited to the same channel, just with a smaller number next to the others."
+    },
+    {
+      "id": "rev-3298",
+      "rating": 5,
+      "role": "founder",
+      "company_size": "1-20",
+      "body": "For $299 it does exactly what we need. We are not running enough channels for anything more complicated."
+    }
+  ]
+}

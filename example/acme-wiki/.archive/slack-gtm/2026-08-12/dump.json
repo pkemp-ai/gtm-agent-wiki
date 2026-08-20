@@ -1,0 +1,28 @@
+{
+  "workspace": "acme-analytics",
+  "run_id": "2026-08-12",
+  "messages": [
+    {
+      "id": "msg-5117",
+      "channel": "#gtm",
+      "user": "morgan.lee",
+      "ts": "2026-08-12T09:31:00Z",
+      "text": "Clearpath Forms is dead as of the end of July. Vendor closed the account, API is gone. Pre-June form-fill detail is not recoverable — only the contacts it created in HubSpot. Do not compare pre-June and post-June form conversion as a trend."
+    },
+    {
+      "id": "msg-5118",
+      "channel": "#gtm",
+      "user": "devon.park",
+      "ts": "2026-08-12T09:48:00Z",
+      "text": "That explains the three landing pages collecting fills into nothing. They were migrated as HTML and never rewired."
+    },
+    {
+      "id": "msg-5120",
+      "channel": "#gtm",
+      "user": "morgan.lee",
+      "ts": "2026-08-12T14:07:00Z",
+      "text": "GA4's reporting UI now defaults to a 30-day lookback where it used to default to 90. Every pull we do needs to state its window explicitly. Also: this is exactly the your-tools-disagree tension the Channel Answers series exists for."
+    }
+  ],
+  "note": "Truncated for the example: 15 messages were fetched, the claim-bearing ones are retained."
+}

@@ -1,0 +1,13 @@
+{
+  "site": "acme-analytics.example",
+  "fetched": "2026-08-17T09:00:00Z",
+  "pages": [
+    {"id": "docs-model-lab", "path": "/docs/model-lab/templates", "title": "Model Lab template library (beta)", "badge": "beta", "updated": "2026-07-11"},
+    {"id": "compare-metricflow", "path": "/compare/metricflow", "title": "Acme vs MetricFlow", "updated": "2026-06-02", "campaign": "compare"},
+    {"id": "blog-attribution-models", "path": "/blog/attribution-models-explained", "title": "Attribution models, explained", "updated": "2026-03-05", "campaign": "evergreen"},
+    {"id": "lp-orphan-1", "path": "/lp/attribution-audit", "title": "Free attribution audit", "campaign": null, "inbound_links": 0, "form": "clearpath-migrated"},
+    {"id": "lp-orphan-2", "path": "/lp/spreadsheet-teardown", "title": "Spreadsheet teardown", "campaign": null, "inbound_links": 0, "form": "clearpath-migrated"},
+    {"id": "lp-orphan-3", "path": "/lp/q1-benchmark", "title": "Q1 attribution benchmark", "campaign": null, "inbound_links": 0, "form": "clearpath-migrated"}
+  ],
+  "note": "Truncated for the example: 47 pages were fetched, the ones referenced by claims are retained."
+}

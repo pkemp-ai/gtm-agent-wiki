@@ -1,0 +1,12 @@
+fetched-at: 2026-08-15T09:00:00Z
+source: news-web
+run-id: 2026-08-15
+access: "your harness's web access — trade-press search, tracked terms"
+cursor-used:
+  from: "since:2026-08-08"
+  to: "since:2026-08-15"
+query: "MetricFlow OR DashForge OR Attribia OR 'revenue attribution' OR 'view-through'"
+items:
+  results: 5
+  retained: 1
+warnings: ["rumor with no platform announcement behind it — watchlist, and unusable in copy until the platform states it itself"]

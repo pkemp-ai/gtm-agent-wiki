@@ -1,0 +1,13 @@
+fetched-at: 2026-08-08T09:00:00Z
+source: reviews-web
+run-id: 2026-08-08
+access: "your harness's web access — public review pages, paginated by cursor"
+cursor-used:
+  from: "review-id:2977"
+  to: "review-id:3312"
+query: "public reviews for Acme Analytics, MetricFlow, DashForge, Attribia since the cursor"
+items:
+  reviews: 31
+  retained: 6
+  vendors: 4
+warnings: ["reviewer names and employers stripped before archiving (SPEC 15.5)", "O-class: single reviews are anecdotes; the rule of three applies before anything becomes an open question"]

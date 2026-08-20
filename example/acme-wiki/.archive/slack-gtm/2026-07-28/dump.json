@@ -1,0 +1,21 @@
+{
+  "workspace": "acme-analytics",
+  "run_id": "2026-07-28",
+  "messages": [
+    {
+      "id": "msg-4977",
+      "channel": "#product-launches",
+      "user": "eng.releases",
+      "ts": "2026-07-28T13:11:00Z",
+      "text": "Journeys can be filtered by seat band now. Needs the seat-count property populated to be useful, which it mostly is not."
+    },
+    {
+      "id": "msg-4978",
+      "channel": "#gtm",
+      "user": "morgan.lee",
+      "ts": "2026-07-28T13:40:00Z",
+      "text": "Filter is the easy half. Seat count is empty on well over a third of closed-won, so the segmentation everyone wants still will not run."
+    }
+  ],
+  "note": "Truncated for the example: 8 messages were fetched, the claim-bearing ones are retained."
+}

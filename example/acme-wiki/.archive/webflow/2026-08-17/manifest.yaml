@@ -1,0 +1,13 @@
+fetched-at: 2026-08-17T09:00:00Z
+source: webflow
+run-id: 2026-08-17
+access: "mcp: <CMS inventory tool> — read-only page and collection listing"
+cursor-used:
+  from: "cms-updatedAt:2026-08-10T06:00:00Z"
+  to: "cms-updatedAt:2026-08-17T06:12:00Z"
+query: "all published pages and collection items, with campaign and inbound-link metadata"
+items:
+  pages: 47
+  collection-items: 112
+  changed-since-cursor: 4
+warnings: ["3 landing pages have no campaign association and no inbound links", "docs page for the Model Lab template library still labels it beta while the 2026-07-09 announcement called it GA — two authoritative reads of our own state"]

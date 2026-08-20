@@ -1,0 +1,12 @@
+fetched-at: 2026-08-06T09:00:00Z
+source: news-web
+run-id: 2026-08-06
+access: "your harness's web access — trade-press search, tracked terms"
+cursor-used:
+  from: "since:2026-07-29"
+  to: "since:2026-08-06"
+query: "MetricFlow OR DashForge OR Attribia OR 'revenue attribution'"
+items:
+  results: 4
+  retained: 1
+warnings: ["new entity: Signalpost — not yet seen in any deal, so watchlist only"]

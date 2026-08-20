@@ -1,0 +1,12 @@
+fetched-at: 2026-07-29T09:00:00Z
+source: news-web
+run-id: 2026-07-29
+access: "your harness's web access — trade-press search, tracked terms"
+cursor-used:
+  from: "since:2026-07-22"
+  to: "since:2026-07-29"
+query: "MetricFlow OR DashForge OR Attribia OR 'revenue attribution'"
+items:
+  results: 6
+  retained: 1
+warnings: ["O-class: single outlet, no primary source cited in the article"]

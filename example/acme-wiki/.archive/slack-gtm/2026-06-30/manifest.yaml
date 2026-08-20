@@ -1,0 +1,13 @@
+fetched-at: 2026-06-30T09:00:00Z
+source: slack-gtm
+run-id: 2026-06-30
+access: "mcp: <workspace chat search tool>"
+cursor-used:
+  from: ts:2026-06-29T09:00:00Z
+  to: "ts:end-of-day 2026-06-30"
+query: "channels #gtm, #product-launches, #wins — all messages in window"
+items:
+  messages: 11
+  channels: 3
+  threads-expanded: 9
+warnings: []

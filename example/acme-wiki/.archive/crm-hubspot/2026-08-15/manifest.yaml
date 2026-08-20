@@ -1,0 +1,12 @@
+fetched-at: 2026-08-15T08:00:00Z
+source: crm-hubspot
+run-id: 2026-08-15
+access: "mcp: <CRM read tool> — saved reports, read-only scopes"
+cursor-used:
+  from: "hs-lastmodified:2026-08-08T08:00:00Z"
+  to: "hs-lastmodified:2026-08-15T08:00:00Z"
+query: "saved reports: customer base, stage mix, source mix, owner map, partner referrals, inbound sources, event overlap, lead magnets"
+items:
+  reports: 8
+  rows-total: 1094
+warnings: ["claim locators cite the report name rather than these files, because the reports are re-runnable; the exports are archived so an audit can see what each returned on the day", "no contact-level PII retained: exports are aggregated before archiving (SPEC 15.5)"]

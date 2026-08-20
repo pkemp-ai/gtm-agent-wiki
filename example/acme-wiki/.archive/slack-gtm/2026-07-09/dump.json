@@ -1,0 +1,21 @@
+{
+  "workspace": "acme-analytics",
+  "run_id": "2026-07-09",
+  "messages": [
+    {
+      "id": "msg-4802",
+      "channel": "#product-launches",
+      "user": "eng.releases",
+      "ts": "2026-07-09T14:02:00Z",
+      "text": "Model Lab template library is generally available. Six prebuilt attribution models, all configurable from the ops side, no SQL."
+    },
+    {
+      "id": "msg-4803",
+      "channel": "#gtm",
+      "user": "dana.okafor",
+      "ts": "2026-07-09T14:30:00Z",
+      "text": "Good. This is what the no-data-team claim points at from now on. Scope it to attribution and nothing wider."
+    }
+  ],
+  "note": "Truncated for the example: 17 messages were fetched, the claim-bearing ones are retained."
+}

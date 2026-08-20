@@ -1,0 +1,27 @@
+# Run-folder manifest — copy to .archive/<source-id>/<run-id>/manifest.yaml
+# Shape is fixed by SPEC §11. Two runs inventing two shapes defeats
+# "everything the eval needs exists on disk".
+#
+# run-id is YYYY-MM-DDTHHMMZ (colon-free). Embed that same string in
+# every provenance locator written against this pull.
+
+run-id: 2026-08-19T0900Z
+fetched-at: 2026-08-19T09:00:00Z
+access-used: "the tool / query / URL / delivery that produced these payloads"
+cursor-before: null          # marker the run started from
+cursor-after: null           # marker it advanced to — equal to before on a no-op
+status: ok                   # ok | partial | failed | duplicate-delivery
+window-requested: null       # window the cadence asked for
+window-actual: null          # window the payload actually covered
+window-deviation: null       # the gap; this is what stops a six-month-old export reading as fresh
+payloads:
+  - file: export.json
+    sha256: ""
+    item-count: 0
+    id-range: null           # source-native id range the file covers
+demultiplex-map: {}          # for a delivery channel: payload → source-id
+masked: []                   # credentials / secrets masked on the way in (SPEC §15.3)
+derived-figures: []          # numbers computed during the fetch, with their arithmetic
+warnings: []
+notes:
+  - single-agent mode: archive written before any claim was drafted

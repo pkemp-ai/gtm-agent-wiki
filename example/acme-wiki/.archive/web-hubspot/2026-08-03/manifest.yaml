@@ -1,0 +1,12 @@
+fetched-at: 2026-08-03T09:00:00Z
+source: web-hubspot
+run-id: 2026-08-03
+access: "your harness's web access — app-partner program requirements and listing policy"
+cursor-used:
+  from: "content-hash:app-partner-requirements=2a90ff"
+  to: "content-hash:app-partner-requirements=5d21c4"
+query: "app partner program requirements page"
+items:
+  pages: 1
+  changed: 1
+warnings: ["requirements changed: certified apps must now document a two-way data flow and publish a support SLA; previously a documented one-way flow sufficed"]

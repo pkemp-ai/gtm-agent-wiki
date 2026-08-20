@@ -1,0 +1,12 @@
+fetched-at: 2026-07-21T09:00:00Z
+source: web-dashforge
+run-id: 2026-07-21
+access: "your harness's web access — product blog only; signup pages out of scope"
+cursor-used:
+  from: "blog-index:2026-06-20"
+  to: "blog-index:2026-07-21"
+query: "https://dashforge.example/blog — posts newer than the cursor"
+items:
+  pages: 1
+  new-posts: 1
+warnings: []

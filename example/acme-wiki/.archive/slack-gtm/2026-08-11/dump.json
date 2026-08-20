@@ -1,0 +1,21 @@
+{
+  "workspace": "acme-analytics",
+  "run_id": "2026-08-11",
+  "messages": [
+    {
+      "id": "msg-5098",
+      "channel": "#product-launches",
+      "user": "eng.releases",
+      "ts": "2026-08-11T10:15:00Z",
+      "text": "Board Pack export shipped. Exports the revenue view as a slide-ready pack."
+    },
+    {
+      "id": "msg-5099",
+      "channel": "#gtm",
+      "user": "sam.whitfield",
+      "ts": "2026-08-11T10:44:00Z",
+      "text": "Spend anomaly alerts and the read-only warehouse export are both fine to name in sales conversations. Warehouse export is beta and gets no date. The Salesforce sync work stays off every surface until the launch post is live."
+    }
+  ],
+  "note": "Truncated for the example: 12 messages were fetched, the claim-bearing ones are retained."
+}

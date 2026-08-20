@@ -1,0 +1,21 @@
+{
+  "workspace": "acme-analytics",
+  "run_id": "2026-06-30",
+  "messages": [
+    {
+      "id": "msg-4703",
+      "channel": "#product-launches",
+      "user": "eng.releases",
+      "ts": "2026-06-30T15:05:00Z",
+      "text": "Campaign costs now write back into HubSpot alongside the attribution fields. Third object on the sync."
+    },
+    {
+      "id": "msg-4704",
+      "channel": "#gtm",
+      "user": "morgan.lee",
+      "ts": "2026-06-30T15:22:00Z",
+      "text": "This is the one that makes cost per opportunity real instead of a spreadsheet. CPO before today is spreadsheet-era, do not trend across the boundary."
+    }
+  ],
+  "note": "Truncated for the example: 11 messages were fetched, the claim-bearing ones are retained."
+}

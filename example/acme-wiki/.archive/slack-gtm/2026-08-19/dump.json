@@ -1,0 +1,28 @@
+{
+  "workspace": "acme-analytics",
+  "run_id": "2026-08-19",
+  "messages": [
+    {
+      "id": "msg-5201",
+      "channel": "#wins",
+      "user": "priya.shah",
+      "ts": "2026-08-18T17:20:00Z",
+      "text": "Closed Northgate. Nothing unusual, standard mid-market cycle."
+    },
+    {
+      "id": "msg-5202",
+      "channel": "#gtm",
+      "user": "devon.park",
+      "ts": "2026-08-19T08:10:00Z",
+      "text": "Teardown 7 slot is confirmed for the 27th, company still unnamed until air date."
+    },
+    {
+      "id": "msg-5203",
+      "channel": "#gtm",
+      "user": "morgan.lee",
+      "ts": "2026-08-19T08:41:00Z",
+      "text": "Reminder that the Q4 Board-Ready refresh is the September blocker, not the webinar."
+    }
+  ],
+  "note": "Truncated for the example: 3 messages were fetched, the claim-bearing ones are retained."
+}

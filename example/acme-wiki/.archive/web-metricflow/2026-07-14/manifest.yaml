@@ -1,0 +1,12 @@
+fetched-at: 2026-07-14T09:00:00Z
+source: web-metricflow
+run-id: 2026-07-14
+access: "your harness's web access — declared paths only, no crawl"
+cursor-used:
+  from: "content-hash:implementation-guide=unseen"
+  to: "content-hash:implementation-guide=c41a77"
+query: "https://metricflow.example/resources/implementation-guide"
+items:
+  pages: 1
+  bytes: 4812
+warnings: ["page carries a marketing-automation tracking script; not executed, saved as fetched"]

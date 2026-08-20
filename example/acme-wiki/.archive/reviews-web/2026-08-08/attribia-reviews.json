@@ -1,0 +1,20 @@
+{
+  "vendor": "Attribia",
+  "window": {"from": "review-id:1044", "to": "review-id:1108"},
+  "reviews": [
+    {
+      "id": "rev-1108",
+      "rating": 2,
+      "role": "marketing operations lead",
+      "company_size": "200-500",
+      "body": "Numbers move week to week and nobody can tell us why. Support says the model improved. The model changed under us and we had already reported the old figures."
+    },
+    {
+      "id": "rev-1092",
+      "rating": 4,
+      "role": "head of growth",
+      "company_size": "50-200",
+      "body": "Setup really was about ten minutes. Whether the attribution is right is a different question."
+    }
+  ]
+}

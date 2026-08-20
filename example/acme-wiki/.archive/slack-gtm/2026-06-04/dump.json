@@ -1,0 +1,21 @@
+{
+  "workspace": "acme-analytics",
+  "run_id": "2026-06-04",
+  "messages": [
+    {
+      "id": "msg-4180",
+      "channel": "#gtm",
+      "user": "sam.whitfield",
+      "ts": "2026-06-04T11:12:00Z",
+      "text": "Ridgeline RevOps signed as our first referral partner. Referral only, 15% first year, no reselling and no white-label. Same terms for anyone who comes after them."
+    },
+    {
+      "id": "msg-4181",
+      "channel": "#gtm",
+      "user": "priya.shah",
+      "ts": "2026-06-04T11:20:00Z",
+      "text": "Two names already in mind for intros. Will route through the partner-sourced flag so we can actually measure it."
+    }
+  ],
+  "note": "Truncated for the example: 14 messages were fetched, the claim-bearing ones are retained."
+}

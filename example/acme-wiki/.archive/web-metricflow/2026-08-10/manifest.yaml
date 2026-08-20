@@ -1,0 +1,12 @@
+fetched-at: 2026-08-10T09:00:00Z
+source: web-metricflow
+run-id: 2026-08-10
+access: "your harness's web access — declared paths only, no crawl"
+cursor-used:
+  from: "content-hash:pricing=8b0d31,case-studies=4ad0e7"
+  to: "content-hash:pricing=9f2c1b,case-studies=4ad0e7"
+query: "https://metricflow.example/pricing ; https://metricflow.example/customers"
+items:
+  pages: 2
+  changed: 1
+warnings: ["pricing page changed since the previous run — list floor moved 2200 to 2500; A-class self-fact, eligible for silent supersession per SPEC 7.2"]

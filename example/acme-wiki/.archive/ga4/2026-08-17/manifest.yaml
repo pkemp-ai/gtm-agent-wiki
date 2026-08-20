@@ -1,0 +1,12 @@
+fetched-at: 2026-08-17T09:00:00Z
+source: ga4
+run-id: 2026-08-17
+access: "mcp: <web analytics report tool> — read-only property access"
+cursor-used:
+  from: "window-start:2026-07-18"
+  to: "window-end:2026-08-17"
+query: "landing-page report, sessions and entrances, 30-day window stated explicitly"
+items:
+  rows: 38
+  retained: 6
+warnings: ["window stated explicitly rather than accepting the UI default, which changed from 90 to 30 days on 2026-08-12"]

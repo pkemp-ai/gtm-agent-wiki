@@ -1,0 +1,14 @@
+fetched-at: 2026-06-27T16:00:00Z
+source: interviews
+run-id: 2026-06-27
+access: "manual: stakeholder session, transcribed by the interview playbook"
+cursor-used:
+  from: "session:2026-06-20-dana-okafor"
+  to: "session:2026-06-27-dana-okafor+morgan-lee"
+query: "session 3 of 9 — icp-personas and voice ratification, 14 questions"
+items:
+  questions-asked: 14
+  ratifications: 9
+  gaps: 3
+  contested: 2
+warnings: ["H-class: the only source that may write doctrine", "verbatim capture required for customer-language phrases — quoted exactly, not tidied"]

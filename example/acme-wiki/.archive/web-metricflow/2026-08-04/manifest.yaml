@@ -1,0 +1,12 @@
+fetched-at: 2026-08-04T09:00:00Z
+source: web-metricflow
+run-id: 2026-08-04
+access: "your harness's web access — blog index diff, then new posts only"
+cursor-used:
+  from: "blog-index:2026-07-14"
+  to: "blog-index:2026-08-04"
+query: "https://metricflow.example/blog — posts newer than the cursor"
+items:
+  pages: 1
+  new-posts: 1
+warnings: []

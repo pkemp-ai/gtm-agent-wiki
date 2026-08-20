@@ -1,0 +1,13 @@
+fetched-at: 2026-08-11T09:00:00Z
+source: social-linkedin
+run-id: 2026-08-11
+access: "your harness's web access — public company-page posts and job listings"
+cursor-used:
+  from: "post-id:li-87990"
+  to: "post-id:li-88214"
+query: "public company pages and job listings for tracked competitors"
+items:
+  posts: 22
+  job-listings: 9
+  retained: 3
+warnings: ["last successful pull before this source broke on 2026-08-14 (session expired); cursor held here"]

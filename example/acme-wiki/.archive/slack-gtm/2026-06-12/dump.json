@@ -1,0 +1,14 @@
+{
+  "workspace": "acme-analytics",
+  "run_id": "2026-06-12",
+  "messages": [
+    {
+      "id": "msg-4551",
+      "channel": "#product-launches",
+      "user": "eng.releases",
+      "ts": "2026-06-12T16:40:00Z",
+      "text": "Dashboard rebuild is out. No customer-visible feature change, query layer replaced. Nothing to announce."
+    }
+  ],
+  "note": "Truncated for the example: 9 messages were fetched, the claim-bearing ones are retained."
+}

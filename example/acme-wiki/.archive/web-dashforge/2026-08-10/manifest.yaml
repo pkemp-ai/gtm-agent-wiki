@@ -1,0 +1,12 @@
+fetched-at: 2026-08-10T09:00:00Z
+source: web-dashforge
+run-id: 2026-08-10
+access: "your harness's web access — pricing page"
+cursor-used:
+  from: "content-hash:pricing=b71e08"
+  to: "content-hash:pricing=b71e08"
+query: "https://dashforge.example/pricing"
+items:
+  pages: 1
+  changed: 0
+warnings: ["unchanged since previous run; archived anyway so the claim has a dated payload"]

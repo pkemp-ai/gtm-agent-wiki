@@ -1,0 +1,20 @@
+{
+  "vendor": "Acme Analytics",
+  "window": {"from": "review-id:2044", "to": "review-id:2104"},
+  "reviews": [
+    {
+      "id": "rev-2091",
+      "rating": 4,
+      "role": "marketing operations lead",
+      "company_size": "200-500",
+      "body": "Dashboards have felt slower since the June update. Still the best attribution tool we have used, and implementation was genuinely days not weeks."
+    },
+    {
+      "id": "rev-2104",
+      "rating": 4,
+      "role": "demand generation manager",
+      "company_size": "200-500",
+      "body": "Their comparison page overstates how long MetricFlow takes to implement. We got a three-week quote from MetricFlow, not six."
+    }
+  ]
+}
