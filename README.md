@@ -9,9 +9,8 @@ Sales and marketing have no repo. This system accounts for that by building on O
 1. A flexibile taxonomy for GTM context
 2. A standing backlog of questions from agents to humans
 3. A framework for human approval of specific types of context
-4. A standing backlog of questions from GTM agents to humans
-5. A maintainer agent that merges proposed updates from GTM agents
-6. Label to source where context updates came from
+5. A maintainer agent that owns the wiki and merges updates from other agents
+6. Labels to source where updates came from
 7. Flexibility. This is a modifiable codebase, not a connector.
 
 ## What you get
