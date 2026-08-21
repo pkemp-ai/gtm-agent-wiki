@@ -20,7 +20,7 @@ Fix rules that govern every edit in both halves:
 
 From the wiki root, run `scripts/lint.py`. Each finding prints as `file:line: SEVERITY [check] message`, and the run exits nonzero on any error. Zero findings is still a run: log the no-op (SPEC §17.5).
 
-The table below states what the deterministic layer must catch and why, drawn from SPEC §14 plus the checks the spec mandates elsewhere (§3, §15.3, §17.4) and the ones later findings added to the reference implementation. The spec's list binds whether or not a given deployment's script has caught up to it: compare `scripts/lint.py`'s own output — or its `--help` docstring — against the table below, and any check named here that the script does not yet emit, you run by hand and record as a deterministic finding, same as if the script had found it. A check the script skips is not a check the spec waives.
+The table below is SPEC §14's deterministic list, in its order, then secrets (§15.3). The spec's list binds whether or not a given deployment's script has caught up to it: compare `scripts/lint.py`'s own output — or its `--help` docstring — against the table below, and any check named here that the script does not yet emit, you run by hand and record as a deterministic finding, same as if the script had found it. A check the script skips is not a check the spec waives.
 
 **`scripts/lint.py` is the source of truth for which of these are currently implemented, not this table.** The script gains checks over time (it is under active extension as this document is written); this table names what must eventually be caught and stays correct even when the two are briefly out of step. `system-files` and `sources-manifest` aren't in the table below because they check §17.4's conformance preconditions directly — system files exist, every source declares access and a cursor, ids resolve in both directions — rather than a single §14 row; run them regardless of whether they show up in either list.
 
@@ -35,7 +35,7 @@ Warnings do not fail the run, so a clean wiki can still carry them — a source 
 
 ### The checks
 
-The first eleven mirror SPEC §14 exactly, in its order; the rest are lint failures the spec mandates elsewhere, or that later findings added to the reference implementation.
+The SPEC §14 list, in its order; then secrets.
 
 | Check | A finding means |
 |---|---|
@@ -47,12 +47,12 @@ The first eleven mirror SPEC §14 exactly, in its order; the rest are lint failu
 | Claim hygiene | A claim is missing its tag; a tag has a malformed label, provenance, or date; more than one date or provenance pointer in one tag; a topic key that isn't the last token on its line; a claim tag sitting inside a table cell (§4.2) |
 | Doctrine provenance | A claim in a `type: doctrine` file carries non-H-class provenance and sits outside all three §17.3 exceptions — the one §17 conformance rule that had no deterministic backing before this check existed |
 | Feeds consistency | A file's front-matter `sources:` names an id whose `feeds:` list omits that file, or the reverse (§10) |
+| Stale target | An Active open question names a `target:` file that carries no reference back to its `oq-` id — the write it's owed hasn't landed (§12.1) |
 | Contested backlog | A contested entry has no linked open question, or the wiki-wide backlog exceeds threshold |
 | Manifest health | A source's access failed or declares none, or its cursor hasn't advanced in 2× its cadence (`status: pending-access` excluded — an onboarding gap, not an outage) |
 | Size caps | A §13 violation: doctrine file over ~200 lines (warns at 250), any canonical file over 400, log past its rolling window, section past one screen |
-| Top-level growth (§3) | A top-level file exists with no taxonomy entry in the deployment's `AGENTS.md` |
+| Top-level growth | A top-level file exists with no taxonomy entry in the deployment's `AGENTS.md`. An entry the maintainer writes (purpose, tier, schema, boundary vs nearest home; exact basename including `.md` in that prose, not only in the inventory table) is conformance; an undeclared file is the error |
 | Secrets (§15.3) | A high-entropy string or known key format appears in wiki content, **including inside `.archive/`** |
-| Stale target | An Active open question names a `target:` file that carries no reference back to its `oq-` id — the write it's owed hasn't landed (§12.1) |
 
 ### Triage
 
@@ -67,7 +67,7 @@ Every finding gets exactly one disposition:
 | Front matter | Restore derivable fields: `evidence-as-of` from the run manifests that already record it, tier from the taxonomy, `sources` from the manifest's `feeds`, `read-restriction:` wherever an `!internal` claim exists | `owner` unknown; cadence or horizon needs a human call | — |
 | Staleness | Queue the file's sources for the next maintain run | Doctrine past horizon → "is this still true?" (§14 mandates this) | A state file stale for the second consecutive lint — its source loop is failing |
 | Runbook decay | On a full run, execute the entry now: success stamps `verified: <date>` (or `verified: <date> (against archive: …)` where only the archive is reachable); failure marks it **broken** with the error, never deleted (§8³) | An entry with no access route at all → `unverified: {since, reason: no-access, question}`, not a guess at `broken` | Any entry newly broken; any file whose verified count is zero |
-| Orphans | Reference page whose parent is evident → add the summary-and-link from the parent (§4.4) | Home genuinely unclear → merge/retire candidate, hand to sweep 2.5 | — |
+| Orphans | New root file from this run → run `scripts/sync_manifest.py` so the inventory links it; if consumers should start there, markdown-link it from read-order too. Reference page whose parent is evident → add the summary-and-link from the parent (§4.4) | Home genuinely unclear → merge/retire candidate, hand to sweep 2.5 | — |
 | Broken links | Target moved → repoint to the new location or anchor | — | Provenance pointer resolves to nothing in `.archive/` — file, run folder, or fragment — and the changelog records no pruning: a write-discipline bug, not a dead link |
 | Claim hygiene | Malformed tag with unambiguous intent (date format, label typo, spacing, mid-line anchor) → repair; provenance recoverable from changelog/archive → restore it | Untagged claim not recoverable (procedure below) | — |
 | Doctrine provenance | The claim already belongs in an evidence section or under a `<!-- tier: -->` marker that's simply missing → add the marker and changelog it | The claim doesn't fit an exception → ratify it (make the evidence H-class) or move it out of doctrine — a human call either way | Always — this is the conformance rule three test deployments self-certified past while violating |
@@ -75,7 +75,7 @@ Every finding gets exactly one disposition:
 | Contested backlog | Entry missing its open question → create and link one (§4.3 requires it) | — | Backlog above threshold (§14 mandates this) — **expected on a fresh build, and not itself a defect; see below** |
 | Manifest health | Mark the failed source **broken** in `sources.md` (§10) | — | Every broken source; every cursor stalled past 2× cadence (`pending-access` sources excluded) |
 | Size caps | Roll aged log entries into roll-ups and `references/`; fan out oversized sections per §13, claims verbatim | Doctrine file bloated with prose rather than structure → stakeholder trim | — |
-| Top-level growth | — | — | Always — structural violation, and deciding whether the file earns a taxonomy entry is a human call |
+| Top-level growth | Stray note (Obsidian dump, untitled page) → relocate through intake or into `references/` under a named parent. File that earned a home under SPEC §3 (the three nearer homes failed, recorded in the changelog) → complete write in this run: entry with the exact basename including `.md`, sync for the inbound link, `feeds:`, `escalations:`. Intent is not a rung. Do not move a just-added file into `references/` as the fix | — | A new root file the maintainer just added — visibility, not permission. A stray file whose home is still unclear after relocate-or-enter |
 | Secrets | Redact the value — in `.archive/` too — replace with the env-var name or vault location, and record the masking in the run manifest (§15.3, §11) | — | Always — rotation is a human decision, and versioned storage retains the value in history |
 | Stale target | — | — | Always — an unmet write obligation is exactly what the digest exists to surface |
 
@@ -118,7 +118,7 @@ Compare the deployment against the taxonomy:
 
 - Canonical files absent with no omission recorded in `AGENTS.md` → escalate (structural).
 - Schema sections empty or missing while evidence for them visibly exists in intake, changelog, or archive (e.g. objections chatter in call pulls, but `icp-personas.md` has no objections content) → open question per gap, targeting the file and section.
-- Intake observations repeatedly suggesting the same target with nowhere to land → the gap is real; open a question proposing where it lives, per the coverage map in [taxonomy.md](../spec/taxonomy.md).
+- Intake observations repeatedly suggesting the same target with nowhere to land → run SPEC §3. Fail reinterpret, then a section, then `references/` (rung 3 fails when the named page would hide a starting point). Only then a new root file, with the complete write. Never an interview question about the filename.
 
 ### 2.5 Merge and split
 

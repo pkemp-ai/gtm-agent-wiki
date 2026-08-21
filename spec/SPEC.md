@@ -1,6 +1,6 @@
 # GTM Agent Wiki Specification
 
-**Version 0.2 — draft** · revised 2026-08-19 from an end-to-end test across three dissimilar companies. Breaking changes are listed in §17.
+**Version 0.2 — draft** · revised 2026-08-20 from an end-to-end test across three dissimilar companies. Breaking changes are listed in §17.
 
 This document defines the format of a GTM wiki: a folder of markdown files that serves as the shared, durable knowledge layer for an organization's go-to-market agents and the humans who work with them. It specifies the file anatomy, the claim format, the trust vocabulary, and the rules that govern who may write what, on the basis of which evidence.
 
@@ -69,11 +69,46 @@ The wiki is a **claim registry**, not a prose archive. Its unit of content is th
 
 Notes:
 
-- The file set above is the **canonical taxonomy** (defined per-file in [taxonomy.md](taxonomy.md)). A deployment may omit files that genuinely don't apply (no partner motion → no `partners.md`) and must record the omission in `AGENTS.md`. New top-level files require a taxonomy entry in the deployment's `AGENTS.md`; unbounded top-level growth is a lint failure — growth goes into `references/`.
+- The file set above is the **canonical taxonomy** (defined per-file in [taxonomy.md](taxonomy.md)). It is a starting place, not a law. A deployment fits the company by omitting, reinterpreting, or — when the nearer homes fail — adding files; each deviation is recorded (the protocol below). Depth still defaults to `references/`. An undeclared top-level `.md` file is a lint failure (`top-level-growth`).
 - **An omitted file is deleted, not stubbed.** A placeholder that says "not applicable" fails the orphan check, reads to a consumer as a gap rather than a decision, and gives a later run something to fill. The omission and its reason live in `AGENTS.md` deployment notes and in the `build:draft` changelog entry.
 - `outbox/` holds every artifact sent to a human — digests, ratification sheets, walkthroughs — one dated file per delivery. It is **exempt from the orphan check and from front-matter requirements**: these are outbound documents, not canon. It exists so the next run can see what the stakeholder was last sent; the drip protocol's "re-ask once, rephrased smaller" is unimplementable without it.
 - `.archive/` may be relocated (configured in `sources.md`) and may be excluded from public remotes. It must exist somewhere: it is the eval's ground truth and the audit trail for every `source-backed` claim.
 - A wiki with no integrations at all is still valid — and it still has a real manifest. It declares **one manual source per underlying system** (`crm`, `stakeholder-docs`, `slack-export`, one per competitor site), each with `access: "manual: …"`, plus `intake/inbox/` as the standing delivery *channel*. Granularity is one source per (system × provenance class); see §10's demultiplex rule. Collapsing a deployment into one manual source gives every claim in the wiki the same id, the same trust class, and the same cadence, which defeats §7.
+
+### Taxonomy as a starting place
+
+The eighteen files are a prior: they absorbed three dissimilar companies, and most homeless concepts were sections or `references/` pages, not new root files. The expensive failure is a **split home** — the same fact in two canonical files, a later update landing in only one — not "too many files."
+
+**Who.** Only the maintainer (the builder during `playbooks/build.md`, later `playbooks/maintain.md`). Consumer agents never create files.
+
+**When.** Build Phase A5 is the usual moment: the taxonomy entry and the inbound link exist **before** A7 lint. A later maintain run uses the same complete write when evidence shows a motion the current file set cannot hold (the company starts a partner program; an omitted file has to come back). Honor the existing omitted-files list until that test fires — do not redesign the menu because this week's evidence is interesting.
+
+**A new source is not a new file.** Adding a source is a manifest change (access, class, `feeds:`) — declared at build census, or on a maintain run only when the access description itself would have to change. Adding a root file is this protocol. Neither decision is the other, and neither is an interview question about filenames.
+
+**The exhaustion ladder.** Before a new top-level file, fail these in order, in the changelog:
+
+1. **Reinterpret** an existing file (the name is wrong, the need is real).
+2. **Add a section** inside a kept file (`channel-styles.md` is the model: sections come and go with no taxonomy entry).
+3. **Fan out** to `references/` under a named parent. A name already in taxonomy.md's `references/` table **is this rung**, not a pass on the whole ladder. **This rung fails** when consumers need the concept as a starting point and the parent would hide it.
+
+A 19th file is legal only when all three fail: consumers need it as a **starting point** in the inventory, not as depth behind another file, and it has a **boundary against the nearest canonical home** so it does not become a split. Restoring a previously omitted file is the same protocol in reverse: the motion now exists; write the reason and recreate the file.
+
+**The same write, complete.** In one run, in this order:
+
+1. Changelog the exhaustion ladder (which rungs failed and why). Construction commentary lives here, not in the new file's body.
+2. Create the file with valid front matter (`type` so the write matrix applies). Ship it **sparse**: tagged absences and open questions, not a guessed doctrine schema. A new empty-looking doctrine file invites the next agent to fill it; that is why omit-don't-stub exists, and it applies to additions too.
+3. Hand-written taxonomy entry in `AGENTS.md` deployment notes (not the generated inventory table): purpose, tier, schema, boundary vs the nearest canonical home. The **exact basename including `.md`** must appear in that prose — lint's `top-level-growth` check is a substring match on hand-written `AGENTS.md` after the inventory block is stripped. An inventory row does not count. This entry is navigation, the same class as an omitted-files row, and is written **in this run** — it does not wait for a later `AGENTS.md` pass. The three-sentence company summary may still wait for ratification.
+4. Markdown inbound link so the file is not an orphan: run `scripts/sync_manifest.py` (inventory rows are links). If consumers should start there, also put a markdown link in the read-order table — backticks alone do not count.
+5. Name the file in its feeding sources' `feeds:` lists and in the file's own `sources:` so `feeds-consistency` passes.
+6. Name the addition on the changelog `escalations:` line so the digest surfaces it.
+
+**Humans see the deviation; they do not pre-approve the filename.** Filing decisions about the wiki's own structure are never interview questions.
+
+**What is not a taxonomy change.** Adding or deleting sections inside a kept file, and fanning out to `references/`, need no taxonomy entry.
+
+Worked example of a passing reason: an open-source-core company whose primary GTM is the hosted community (maintainer comps, contributor credit, issue triage as marketing, the support answer that is the funnel). `channel-styles.md ## Community` holds Discord *mechanics*; stuffing the motion there splits style from strategy. `references/community.md` is the named default for depth, and **still fails rung 3** because it hides the motion behind a channel file consumers writing outbound will not open. A root `community.md` (doctrine), with mechanics remaining in `channel-styles.md`, is the case the three nearer homes fail.
+
+Worked example of a failing reason: speaker × medium × claim → allowed? stays in `references/say-matrix.md`. Consumers start at `compliance-guardrails.md`; the matrix is depth behind a named parent.
 
 ## 4. Page format
 
@@ -535,7 +570,7 @@ The changelog is what the digest is generated from, what the eval's churn metric
 - **Doctrine files stay small** — one cap, stated once: **target 200 lines, lint warns at 250.** They are read whole, often, by every consumer.
 - **Running logs are capped, and the cap is cadence-relative.** `events.md` and `product-releases.md` keep a rolling window of **at least two of the org's own channel cycles, minimum 90 days**, declared per file as `log-window:` in front matter the way `staleness-horizon` is. A flat 90 days is wrong wherever the cycle is longer than a quarter: a biennial trade-show calendar means a 90-day window can never contain a show *and* its outcome, and the defining event of the cycle sits outside it by construction. Detail beyond the window rolls up monthly and moves to `references/`; entry counts (default 100) are a secondary cap, not the primary one.
 - **Fan-out rule**: when a section outgrows one screen (~150 lines) or serves a distinct retrieval need (a battlecard, a persona deep dive), it becomes a `references/` page; the canonical file keeps a summary and a link. One canonical home per concept — a fact lives in exactly one place, and other files link to it.
-- The canonical top level does not grow. Depth goes into `references/`.
+- Depth defaults to `references/`. A new top-level file is a §3 deviation: legal when the exhaustion ladder fails, illegal when it is undeclared.
 
 ## 14. Freshness and lint
 
@@ -557,6 +592,7 @@ Deterministic checks (run by the lint playbook — no model judgment involved):
 | Contested backlog | contested entries with no linked open question; backlog above threshold → escalate in digest |
 | Manifest health | sources with failed access or cursors that haven't advanced in 2× cadence (`status: pending-access` excluded — it is an onboarding gap, not an outage) |
 | Size caps | §13 violations |
+| Top-level growth | a root `.md` file outside the canonical set has no hand-written taxonomy entry in `AGENTS.md` (§3). An entry the maintainer writes is conformance, not a defect; an undeclared file is an error |
 
 Model-judgment checks (the lint playbook's second half): contradiction sweep across files, claims that read as prose without being tagged, doctrine drift (state evidence accumulating against a doctrine claim without a contested entry).
 
@@ -582,7 +618,7 @@ Model-judgment checks (the lint playbook's second half): contradiction sweep acr
 
 A wiki is spec-conformant when:
 
-1. Every canonical file carries valid front matter with a declared tier.
+1. Every root content file — the taxonomy prior and any local addition — carries valid front matter with a declared tier.
 2. Every actionable claim carries a claim tag; every `source-backed` tag resolves into `.archive/` — run folder, file, and fragment — or names a query a runbook entry can re-run.
 3. **No doctrine *claim* carries non-H-class provenance.** Three exceptions, and no others:
    - **(a)** entries inside a `## Contested` section;
@@ -590,7 +626,7 @@ A wiki is spec-conformant when:
    - **(c)** sections carrying an explicit `<!-- tier: -->` marker (§6).
 
    A claim under (b) or (c) is illustrative evidence: it may never be the only tag on an assertion a consumer would read as a company decision. The old wording ("doctrine files contain no claims whose provenance is not H-class") mandated its own violation, because the taxonomy requires verbatim customer language inside a doctrine file, and a customer is definitionally not H-class about the org's own decisions. Three test deployments invented three different resolutions and all three then self-certified conformance they did not have.
-4. `sources.md` exists; every source has an access declaration and a cursor; every canonical file's `sources:` field names manifest entries, and the naming is consistent in both directions (§10).
+4. `sources.md` exists; every source has an access declaration and a cursor; every root content file's `sources:` field names manifest entries, and the naming is consistent in both directions (§10).
 5. `changelog.md` records every run, including no-ops.
 6. `open-questions.md` exists and every contested entry links into it.
 7. Consumer agents have a path to contribute (intake surfaces exist) and no write access to canon.

@@ -6,7 +6,7 @@ The consumer contract distilled for API-built agents. Paste the block below into
 You work with the GTM wiki at {{WIKI_PATH}}. It is your only source of truth about this organization's go-to-market.
 
 READ (canonical files summarize; follow their links into references/)
-- Start at {{WIKI_PATH}}/AGENTS.md (inventory: evidence-as-of and last-verified, deployment notes).
+- Start at {{WIKI_PATH}}/AGENTS.md (inventory: evidence-as-of and last-verified; deployment notes: omitted files and local additions). Follow the deployment's own read-order for local files.
 - Content creation -> compliance-guardrails, voice, channel-styles, icp-personas, glossary, business-core (positioning + approved claims).
 - Competitive response -> compliance-guardrails (competitor conduct), competitors + its references/ battlecard, business-core, customers.
 - Reporting -> metrics, crm / gtm-tools (access), current snapshot, wherever this deployment keeps one — check deployment notes.
@@ -34,7 +34,7 @@ WRITE-BACK (append only, to these surfaces; rewrite nothing, ever)
 - Human-only question -> open-questions.md ## Active, as ### oq-NNN · <question> ^oq-NNN (match this file's existing id convention),
   plus kind, owed-by, why-it-matters, target, origin.
 - Event -> events.md ## Log: #### YYYY-MM-DD · <event>, plus 2-3 lines on why marketing cares.
-- Never touch claim tags, changelog.md, or sources.md. No file access? Output the entry to paste instead.
+- Never touch claim tags, changelog.md, or sources.md. Never create files. Local additions named in deployment notes are canon — do not edit them. No file access? Output the entry to paste instead.
 
 SILENCE
 - No approved claim = you may not make it: benefit claims, roadmap items, customer references, and comparisons absent from the wiki are

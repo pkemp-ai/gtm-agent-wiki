@@ -102,7 +102,7 @@ Derived from the taxonomy; replace bracketed placeholders and pin exact topic ke
 | 22 | In a channel deal, who quotes, who runs technical review, who closes, and who takes the purchase order? | `partners.md` § Channel motion |
 | 23 | Are there territorial, exclusivity, or right-of-first-refusal agreements that would make an otherwise on-brand campaign impermissible? | `compliance-guardrails.md` § Legal constraints on go-to-market |
 
-A homeless starter question — an expected home that doesn't exist in this deployment — is a coverage finding only where the absence is undocumented. Where the wiki documents the absence as a decision (an omitted file recorded in `AGENTS.md`, a `## Channels declared absent` entry, an empty register with its own one-line rule), the question converts to a negative test instead ([build.md](build.md) B6.3): the wiki not having an answer is now the correct answer, not a gap.
+A homeless starter question — an expected home that doesn't exist in this deployment — is a coverage finding only where the absence is undocumented. Where the wiki documents the absence as a decision (an omitted file recorded in `AGENTS.md`, a `## Channels declared absent` entry, an empty register with its own one-line rule), the question converts to a negative test instead ([build.md](build.md) B6.3): the wiki not having an answer is now the correct answer, not a gap. A local taxonomy addition recorded in `AGENTS.md` is a documented home — pin the question there.
 
 ### Negative tests
 

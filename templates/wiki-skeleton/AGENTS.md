@@ -16,13 +16,14 @@ last-verified: 2026-08-19
 ## Inventory
 
 <!-- The block below is owned by scripts/sync_manifest.py — never hand-edit it.
-     The script generates one row per top-level canonical file from that file's
-     front matter (name, tier, description, evidence-as-of, last-verified), so the
-     rows below carry the skeleton's placeholder descriptions until build fills
-     them in.
+     The script generates one row per top-level file with parseable front
+     matter (taxonomy order, then local additions alphabetically) from that
+     file's front matter (name, tier, description, evidence-as-of, last-verified),
+     so the rows below carry the skeleton's placeholder descriptions until
+     build fills them in.
      Re-run `python3 scripts/sync_manifest.py <wiki-dir>` after any front-matter
      edit; `--check` fails if the table has drifted. These rows are also what
-     routes a reader to every canonical file, so the table is the wiki's link
+     routes a reader to every root file, so the table is the wiki's link
      hub for lint's orphan check. -->
 
 <!-- INVENTORY:START -->
@@ -82,6 +83,6 @@ What to read for common tasks, in order. One rule is absolute: **anything custom
 | Note | Value |
 |---|---|
 | Omitted files | TBD — canonical files this deployment omits, each with why (e.g. `partners.md` — no partner motion). "None" is a valid entry. |
-| Local taxonomy additions | TBD — any new top-level files, each with a taxonomy entry: purpose, tier, schema. Default: none — growth goes into `references/`. |
+| Local taxonomy additions | TBD — any new top-level files, each with a taxonomy entry: purpose, tier, schema, boundary vs the nearest canonical home. Default: none — fail SPEC §3's ladder (reinterpret, section, `references/`) before adding a root file. |
 | Storage adapter | TBD — git (default) / Obsidian / Notion one-way-primary; if not git, name the revert mechanism. |
 | Digest recipient & cadence | TBD — who receives the digest, how often. |

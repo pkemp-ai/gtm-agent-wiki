@@ -2,7 +2,8 @@
 """Regenerate the AGENTS.md file-inventory table from front matter.
 
 The inventory table is the consumer agent's map of the wiki: one row per
-canonical file with its tier, retrieval-oriented description, and both
+root file with parseable front matter (taxonomy order, then local additions
+alphabetically) with its tier, retrieval-oriented description, and both
 freshness dates -- evidence-as-of (the content's age) and last-verified
 (when a human or an execution check last looked, SPEC 4.1) -- because a
 consumer deciding whether to trust a file needs both, not just the one that
@@ -61,7 +62,7 @@ def _cell(value: str) -> str:
 
 
 def collect_rows(root: Path) -> list:
-    """One row per top-level canonical file with parseable front matter."""
+    """One row per top-level file with parseable front matter."""
     rows = []
     for path in sorted(root.glob("*.md")):
         if path.name == "AGENTS.md":

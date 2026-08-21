@@ -83,7 +83,9 @@ Checks (check name -> rule):
                         so an honest first build does not fail by construction
                         (F22r); pass --contested-threshold to pin an exact value
     top-level-growth    a top-level file outside the canonical taxonomy has no
-                        taxonomy entry in AGENTS.md (SPEC 3)
+                        taxonomy entry in AGENTS.md (SPEC 3). An entry the
+                        maintainer writes is conformance; an undeclared file
+                        is the error. Depth still defaults to references/.
     size-cap            doctrine files > 250 lines, any canonical file > 400
                         lines, any section > 150 lines (warnings, per SPEC 13)
     secrets             known credential formats (AWS, sk-, ghp_, xox*, PEM)
@@ -327,7 +329,9 @@ class Linter:
                      "surface both sides of")
 
     def check_top_level_growth(self, files):
-        """SPEC 3: the canonical top level does not grow -- depth goes to references/."""
+        """SPEC 3: an undeclared root file is an error -- depth defaults
+        to references/; a new top-level file needs a hand-written taxonomy
+        entry in AGENTS.md."""
         agents = self.root / "AGENTS.md"
         if not agents.is_file():
             return
@@ -341,8 +345,10 @@ class Linter:
             if rel not in prose:
                 self.add(rel, 1, ERROR, "top-level-growth",
                          "top-level file outside the canonical taxonomy with no taxonomy "
-                         "entry in AGENTS.md -- add one under deployment notes, or move "
-                         "the page into references/ (SPEC 3)")
+                         "entry in AGENTS.md -- the exact basename including .md must "
+                         "appear in deployment-notes prose (purpose, tier, schema, "
+                         "boundary vs nearest home), not only in the inventory table; "
+                         "or move the page into references/ if it is stray (SPEC 3)")
 
     def check_orphans(self, files):
         for path in files:

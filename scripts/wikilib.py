@@ -120,8 +120,9 @@ CADENCE_DAYS = {
 #: spec and every wiki cites them constantly).
 SYSTEM_BASENAMES = ("open-questions.md", "changelog.md", "sources.md")
 
-#: Canonical top-level order from SPEC 3 -- used to sort the AGENTS.md
+#: Default top-level order from SPEC 3 -- used to sort the AGENTS.md
 #: inventory table so it reads in taxonomy order, not filesystem order.
+#: Local additions (files not in this tuple) sort after, alphabetically.
 CANONICAL_ORDER = (
     "business-core.md",
     "icp-personas.md",
