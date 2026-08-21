@@ -15,7 +15,9 @@ Sales and marketing have no repo. This system accounts for that by building on O
 
 ## What you get
 
-A deployed GTM wiki is a folder of markdown files — positioning, ICP, voice, competitors, pipeline, tooling, metrics, org — that works as a git repo or an Obsidian vault, and can be rendered to Notion for browsing. This repo ships the playbooks and a chat skill; the wiki is the knowledge. No runtime, no framework, no connector code.
+A deployed GTM wiki is a folder of markdown files — positioning, ICP, voice, competitors, pipeline, tooling, metrics, org — that works as a git repo or an Obsidian vault, and can be rendered to Notion for browsing. 
+
+This repo has an agent to build and ship the wiki, another agent to maintain it. and a skill for your agents to use it.
 
 ## Quickstart
 
