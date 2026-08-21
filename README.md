@@ -1,6 +1,6 @@
 # GTM Agent Wiki
 
-A proactive memory system for agents supporting a company's GTM. Built by agents. Maintained by agents and humans.
+A proactive memory system for agents working on a company's GTM. Built by and for agents. Maintained by agents and humans.
 
 Agents doing sales and marketing work require context that comes from non-deterministic sources (not a codebase). [OpenWiki](https://github.com/langchain-ai/openwiki) introduces a CLI that builds and maintains documentation for a codebase.
 
